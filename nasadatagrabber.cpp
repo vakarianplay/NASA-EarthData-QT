@@ -2,6 +2,7 @@
 
 NasaDataGrabber::NasaDataGrabber(QString url_, QString username_, QString pass_, QString outPath_)
 {
+    qDebug() << "grabber class" << username_ << "  " << pass_;
     generateCookies(username_, pass_);
     QString cookieFile = QDir::homePath() + "/.urs_cookies";
     downloadFile(url_, outPath_, cookieFile);
@@ -55,21 +56,19 @@ void NasaDataGrabber::generateCookies(const QString& user_, const QString& pass_
     bool needsUpdate = false;
 
     if (netrcFile.exists()) {
-        qDebug() << ".netrc exist";
-
-    if (netrcFile.open(QIODevice::ReadOnly)) {
-        QTextStream in(&netrcFile);
-        QString fileContent = in.readAll();
-        netrcFile.close();
-
-        if (fileContent != expectedContent) {
-          qDebug() << ".netrc need update";
-          needsUpdate = true;
-          }
-        } else {
-            qDebug() << ".netrc don't exist";
-            needsUpdate = true;
-        }
+           qDebug() << ".netrc exisit";
+           if (netrcFile.open(QIODevice::ReadOnly)) {
+               QTextStream in(&netrcFile);
+               QString fileContent = in.readAll();
+               netrcFile.close();
+               if (fileContent != expectedContent) {
+                   qDebug() << "Need to update netrc";
+                   needsUpdate = true;
+               }
+           }
+       } else {
+           needsUpdate = true;
+       }
 
         if (needsUpdate) {
             if (netrcFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
@@ -86,8 +85,8 @@ void NasaDataGrabber::generateCookies(const QString& user_, const QString& pass_
             if (curlCall())
                 qDebug() << "cookies create";
         }
-    }
 }
+
 
 bool NasaDataGrabber::isCookiesFileExist()
 {
