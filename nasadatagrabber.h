@@ -7,6 +7,7 @@
 #include <string>
 #include <QFile>
 #include <QDir>
+#include <QProcess>
 
 class NasaDataGrabber
 {
@@ -19,7 +20,9 @@ private:
 
     void downloadFile(const QString& url, const QString& outputFileName, const QString& cookieFile);
     size_t WriteFileCallback(void* ptr, size_t size, size_t nmemb, FILE* stream);
-    void generateCookies();
+    void generateCookies(const QString &user_, const QString &pass_);
+    bool isCookiesFileExist();
+    bool curlCall();
 };
 
 #endif // NASADATAGRABBER_H

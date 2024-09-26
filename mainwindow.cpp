@@ -39,10 +39,6 @@ void MainWindow::savePsw()
 
 }
 
-
-
-
-
 void MainWindow::on_pushButton_browse_clicked()
 {
     QString directory = QFileDialog::getExistingDirectory(this, tr("Select Directory"), "", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
@@ -58,6 +54,7 @@ void MainWindow::on_pushButton_getdata_clicked()
     QString outputFileName = ui->lineEdit_path->text() + "/" + "COD0OPSULT_20242670000_02D_05M_ORB.SP3.gz";
     QString cookieFile = QDir::homePath() + "/.urs_cookies";
     ui->lineEdit_path->setText(outputFileName);
-    nasaData = new NasaDataGrabber(ui->lineEdit_url->text(), "aaaa", "123", outputFileName);
+    nasaData = new NasaDataGrabber(url, "aaaa", "123", outputFileName);
+
 }
 
