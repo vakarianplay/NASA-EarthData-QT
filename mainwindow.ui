@@ -312,6 +312,9 @@ SpeedDial QPushButton {
        <property name="text">
         <string>Save password</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item row="5" column="0">
@@ -395,6 +398,10 @@ SpeedDial QPushButton {
     <property name="text">
      <string>Get Eatrh Data</string>
     </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/res/save.png</normaloff>:/res/save.png</iconset>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -409,6 +416,8 @@ SpeedDial QPushButton {
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

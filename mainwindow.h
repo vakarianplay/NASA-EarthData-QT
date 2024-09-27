@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
+#include <QRegularExpression>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,8 +21,6 @@ public:
     ~MainWindow();
 
 private slots:
-
-
     void on_pushButton_browse_clicked();
 
     void on_pushButton_getdata_clicked();
@@ -33,6 +32,6 @@ private:
 
     void initWindow();
     void readPsw();
-    void savePsw();
+    void clearSession();
 };
 #endif // MAINWINDOW_H
