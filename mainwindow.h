@@ -25,6 +25,10 @@ private slots:
 
     void on_pushButton_getdata_clicked();
 
+
+
+    void on_lineEdit_url_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
@@ -33,5 +37,6 @@ private:
     void initWindow();
     void readPsw();
     void clearSession();
+    QString extractFileName(QString url);
 };
 #endif // MAINWINDOW_H
