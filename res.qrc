@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>res/logo.png</file>
         <file>res/save.png</file>
+        <file>res/clear.png</file>
     </qresource>
 </RCC>

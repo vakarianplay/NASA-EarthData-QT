@@ -393,12 +393,16 @@ SpeedDial QPushButton {
          </property>
          <property name="maximumSize">
           <size>
-           <width>100</width>
+           <width>120</width>
            <height>25</height>
           </size>
          </property>
          <property name="text">
           <string>Clear session</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/res/clear.png</normaloff>:/res/clear.png</iconset>
          </property>
         </widget>
        </item>
