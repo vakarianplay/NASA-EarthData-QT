@@ -7,14 +7,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     initWindow();
-
-//    nasaData = new NasaDataGrabber(url, "aaaa", "123", outputFileName);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    clearSession();
+    if (!ui->checkBox_save->isChecked())
+        clearSession();
 }
 
 void MainWindow::initWindow()
@@ -51,7 +50,6 @@ void MainWindow::readPsw()
 
 void MainWindow::clearSession()
 {
-    if (!ui->checkBox_save->isChecked()){
         QString cookieFile = QDir::homePath() + "/.urs_cookies";
         QFile cfile(cookieFile);
         if (cfile.exists())
@@ -61,7 +59,6 @@ void MainWindow::clearSession()
         QFile nfile(netFile);
         if (nfile.exists())
             nfile.remove();
-    }
 }
 
 QString MainWindow::extractFileName(QString url) {
@@ -96,5 +93,12 @@ void MainWindow::on_lineEdit_url_textChanged(const QString &arg1)
     Q_UNUSED(arg1);
     QString urlBuff = ui->lineEdit_url->text();
     ui->lineEdit_path->setText(ui->lineEdit_path->text() + "/" + extractFileName(urlBuff));
+}
+
+
+void MainWindow::on_pushButton_clr_clicked()
+{
+    clearSession();
+    readPsw();
 }
 

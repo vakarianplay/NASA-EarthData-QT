@@ -29,6 +29,8 @@ private slots:
 
     void on_lineEdit_url_textChanged(const QString &arg1);
 
+    void on_pushButton_clr_clicked();
+
 private:
     Ui::MainWindow *ui;
 
