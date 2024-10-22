@@ -8,4 +8,5 @@
 ![alt text](https://img.shields.io/badge/run%20-linux-blue?style=flat-square&logo=linux)
 
 
-![Снимок экрана 2024-09-26 142216](https://github.com/user-attachments/assets/0fee23ee-82fc-4757-9032-1b7777cdf30e)
+![image](https://github.com/user-attachments/assets/38512476-7216-4562-a060-d63b11406339)
+
