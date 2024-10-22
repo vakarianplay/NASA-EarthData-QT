@@ -1,4 +1,4 @@
-#include "nasadatagrabber.h"
+﻿#include "nasadatagrabber.h"
 
 NasaDataGrabber::NasaDataGrabber(QString url_, QString username_, QString pass_, QString outPath_)
 {
@@ -70,6 +70,11 @@ void NasaDataGrabber::generateCookies(const QString& user_, const QString& pass_
            needsUpdate = true;
        }
 
+    if (isExpirationCookies()){
+        needsUpdate = true;
+        qDebug() << "Need to update cookies";
+     }
+
         if (needsUpdate) {
             if (netrcFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
                 QTextStream out(&netrcFile);
@@ -87,7 +92,6 @@ void NasaDataGrabber::generateCookies(const QString& user_, const QString& pass_
         }
 }
 
-
 bool NasaDataGrabber::isCookiesFileExist()
 {
     bool existflag = false;
@@ -102,6 +106,22 @@ bool NasaDataGrabber::isCookiesFileExist()
         existflag = true;
 
     return existflag;
+}
+
+bool NasaDataGrabber::isExpirationCookies()
+{
+    bool expirationFlag = false;
+    QString cookieFile = QDir::homePath() + "/.urs_cookies";
+    QDateTime currentTime = QDateTime::currentDateTime();
+    if (isCookiesFileExist()) {
+        QFileInfo fileInfo(cookieFile);
+        QDateTime lastModified = fileInfo.lastModified();
+            if (lastModified.daysTo(currentTime) > 2) {
+    //            QFile::remove(cookieFile);
+                expirationFlag = true;
+            }
+    }
+    return expirationFlag;
 }
 
 bool NasaDataGrabber::curlCall()

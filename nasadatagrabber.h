@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QDir>
 #include <QProcess>
+#include <QDateTime>
 
 class NasaDataGrabber
 {
@@ -23,6 +24,7 @@ private:
     void generateCookies(const QString &user_, const QString &pass_);
     bool isCookiesFileExist();
     bool curlCall();
+    bool isExpirationCookies();
 };
 
 #endif // NASADATAGRABBER_H
