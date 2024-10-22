@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Nasa EarthData</string>
   </property>
   <property name="styleSheet">
    <string notr="true">/* QLC+ Black theme by Emerick Herve */

@@ -86,6 +86,9 @@ void MainWindow::on_pushButton_getdata_clicked()
 //    String cookieFile = QDir::homePath() + "/.urs_cookies";
 //    ui->lineEdit_path->setText(outputFileName);
     nasaData = new NasaDataGrabber(ui->lineEdit_url->text(), ui->lineEdit_login->text(), ui->lineEdit_pass->text(), ui->lineEdit_path->text());
+
+    QString msgText = "File " + extractFileName(ui->lineEdit_url->text()) + " downloaded.";
+    QMessageBox::information(this, "Info", msgText);
 }
 
 void MainWindow::on_lineEdit_url_textChanged(const QString &arg1)
@@ -100,5 +103,6 @@ void MainWindow::on_pushButton_clr_clicked()
 {
     clearSession();
     readPsw();
+    QMessageBox::information(this, "Info", "Session cleared.");
 }
 

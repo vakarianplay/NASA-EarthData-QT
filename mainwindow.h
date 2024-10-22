@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QRegularExpression>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
