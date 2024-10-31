@@ -5,7 +5,7 @@
 
 ![alt text](https://img.shields.io/badge/Qt5-5.15.2-blue?style=flat-square&logo=qt) 
 ![alt text](https://img.shields.io/badge/include-cURL.h-blue?style=flat-square&logo=curl)
-![alt text](https://img.shields.io/badge/run%20-linux-blue?style=flat-square&logo=linux)
+![alt text](https://img.shields.io/badge/compatible%20-linux-blue?style=flat-square&logo=linux)
 
 
 ![image](https://github.com/user-attachments/assets/38512476-7216-4562-a060-d63b11406339)
