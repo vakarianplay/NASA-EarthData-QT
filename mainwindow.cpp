@@ -62,12 +62,14 @@ void MainWindow::clearSession()
 }
 
 QString MainWindow::extractFileName(QString url) {
-    QRegExp regex(".*/([^/]+\\.*)$");
-    if (regex.indexIn(url) != -1) {
-        return regex.cap(1);
+    QRegularExpression regex(".*/([^/]+\\..+)$");
+    QRegularExpressionMatch match = regex.match(url);
+    if (match.hasMatch()) {
+        return match.captured(1);
     }
     return QString();
 }
+
 
 
 void MainWindow::on_pushButton_browse_clicked()
