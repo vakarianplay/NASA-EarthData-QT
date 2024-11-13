@@ -8,7 +8,6 @@ NasaDataGrabber::NasaDataGrabber(QString url_, QString username_, QString pass_,
     downloadFile(url_, outPath_, cookieFile);
 }
 
-
 void NasaDataGrabber::downloadFile(const QString& url, const QString& outputFileName, const QString& cookieFile) {
     curl_global_init(CURL_GLOBAL_DEFAULT);
     curl = curl_easy_init();
@@ -126,7 +125,6 @@ bool NasaDataGrabber::isExpirationCookies()
 
 bool NasaDataGrabber::curlCall()
 {
-    qDebug() << "curl call";
     bool result = false;
     QString command = "curl -b ~/.urs_cookies -c ~/.urs_cookies -L -n https://cddis.nasa.gov/archive/gnss/products/2333";
     QProcess process;
@@ -139,7 +137,6 @@ bool NasaDataGrabber::curlCall()
 
     if (!output.isEmpty())
         result = true;
-
      if (!error.isEmpty())
         result = false;
 
